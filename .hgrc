@@ -1,0 +1,45 @@
+[ui]
+username = jhunziker@bcisensors.com
+#username = landtuna@gmail.com
+merge = emacs-merge
+ssh = ssh -C
+
+[defaults]
+diff = --color=always
+
+[extensions]
+bisect=
+extdiff=
+fetch=
+graphlog=
+hgext.mq=
+hgk=
+hgattic=/home/jhunziker/hgext/attic.py
+color=
+
+#imerge=
+record=
+transplant=
+rebase=
+hgext.bookmarks=
+#hgext.hg-git=/home/jhunziker/tmp/hg-git
+
+[extdiff]
+cmd.meld=
+cmd.ediff = sh
+opts.ediff = -c 'if [ -d $0 ]; then emacs --eval "(ediff-directories \"$0\" \"$1\" \"\")"; else emacs --eval "(ediff-files \"$0\" \"$1\")"; fi'
+
+[tortoisehg]
+vdiff = meld
+
+[diff]
+#git = 1
+
+[web]
+allow_push = *
+push_ssl = false
+
+[alias]
+llog = log --limit 10
+qstatus = status --rev qparent:qtip
+
