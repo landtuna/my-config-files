@@ -1,18 +1,19 @@
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(browse-url-mozilla-program "firefox")
  '(c-offsets-alist (quote ((statement-cont . c-lineup-assignments))))
  '(case-fold-search t)
  '(confirm-kill-emacs (quote y-or-n-p))
  '(current-language-environment "Latin-1")
+ '(custom-enabled-themes (quote (grandshell)))
+ '(custom-safe-themes (quote ("7ed6913f96c43796aa524e9ae506b0a3a50bfca061eed73b66766d14adfa86d1" default)))
  '(default-input-method "latin-1-prefix")
  '(doxymacs-doxygen-dirs (quote (("^/home/wecuser/work/src" "/home/wecuser/work/docs/tagfile.xml" "file:///home/wecuser/work/docs/html"))))
  '(doxymacs-doxygen-style "C++")
  '(dvc-tips-enabled nil)
- '(js-indent-level 2)
  '(explicit-bash-args (quote ("--noediting" "--login" "-i")))
  '(global-auto-composition-mode nil)
  '(global-auto-revert-mode t nil (autorevert))
@@ -21,6 +22,7 @@
  '(inhibit-startup-screen t)
  '(iswitchb-case t)
  '(iswitchb-mode t nil (iswitchb))
+ '(js-indent-level 2)
  '(org-agenda-files (quote ("~/org/HWDDC.org")) t)
  '(show-paren-mode t nil (paren))
  '(text-mode-hook (quote (turn-on-auto-fill text-mode-hook-identify)))
@@ -32,6 +34,9 @@
  '(w3m-use-cookies t))
 
 ;
+(require 'package)
+(add-to-list 'package-archives
+  '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 (add-to-list 'load-path "~/elisp")
 (add-to-list 'load-path "~/share/emacs/site-lisp")
@@ -178,10 +183,10 @@
 ;    :front "<%"
 ;    :back "%>")))
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
 
 (autoload 'longlines-mode
@@ -230,7 +235,7 @@
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
 
-(load-file "/usr/local/share/emacs/site-lisp/dvc/dvc-load.el")
+;(load-file "/usr/local/share/emacs/site-lisp/dvc/dvc-load.el")
 (autoload 'd-mode "~/elisp/d-mode/d-mode" "Major mode for editing D code." t)
 (add-to-list 'auto-mode-alist '("\\.d[i]?\\'" . d-mode))
 
@@ -268,6 +273,7 @@
 (require 'rust-mode)
 (add-to-list 'auto-mode-alist '("\\.rs$" . rust-mode))
 
-;;(add-to-list 'load-path "~/elisp/evil")
-;;(require 'evil)
-;;(evil-mode 1)
+(add-to-list 'load-path "~/.emacs.d/elpa/grandshell-theme-20140415.2225")
+(require 'grandshell-theme)
+(load-theme 'grandshell t)
+
